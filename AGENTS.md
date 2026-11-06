@@ -42,7 +42,7 @@ Use `pnpm` (the lockfile is `pnpm-lock.yaml`).
 - src/styles/: estilos globales y variables de diseño.
 
 ## Reglas de implementación
-- Revisar los componentes existentes antes de crear uno.
+- Revisar los componentes ex0istentes antes de crear uno.
 - Mantener las páginas como composición de secciones.
 - Definir los tipos de las props con TypeScript.
 - Evitar duplicar componentes y contenido.
