@@ -1,0 +1,271 @@
+.donation-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.donation-dialog__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 33, 61, 0.55);
+  animation: donation-dialog-fade 180ms ease-out;
+}
+
+.donation-dialog__card {
+  position: relative;
+  z-index: 1;
+  width: min(672px, 100%);
+  max-height: calc(100vh - 48px);
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  border-radius: var(--radius-panel);
+  background: var(--color-white);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: donation-dialog-rise 220ms ease-out;
+  overscroll-behavior: contain;
+}
+
+.donation-dialog__header {
+  position: relative;
+  padding: 40px;
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.donation-dialog__badge {
+  display: flex;
+  width: fit-content;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+
+.donation-dialog__title {
+  max-width: 592px;
+  margin-top: 17px;
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.donation-dialog__description {
+  max-width: 512px;
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.donation-dialog__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  transition: background-color var(--transition-fast);
+}
+
+.donation-dialog__close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.donation-dialog__close-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.donation-dialog__body {
+  padding: 40px;
+}
+
+.donation-dialog__method {
+  padding: 32px;
+  border: 1px solid #e5e5e5;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.donation-dialog__method-eyebrow {
+  color: var(--color-orange);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.donation-dialog__method-title {
+  margin-top: 8px;
+  color: var(--color-navy);
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.01em;
+}
+
+.donation-dialog__method-description {
+  max-width: 512px;
+  margin-top: 12px;
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.75px;
+}
+
+.donation-dialog__action {
+  min-height: 48px;
+  margin-top: 24px;
+  padding: 13px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.donation-dialog__notice {
+  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19.5px;
+}
+
+@keyframes donation-dialog-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes donation-dialog-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 700px) {
+  .donation-dialog {
+    padding: 20px;
+  }
+
+  .donation-dialog__header,
+  .donation-dialog__body {
+    padding: 32px;
+  }
+
+  .donation-dialog__title {
+    font-size: 40px;
+    line-height: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .donation-dialog {
+    padding: 16px;
+  }
+
+  .donation-dialog__card {
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+  }
+
+  .donation-dialog__header,
+  .donation-dialog__body {
+    padding: 24px;
+  }
+
+  .donation-dialog__title {
+    margin-top: 16px;
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .donation-dialog__description {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  .donation-dialog__close {
+    top: 16px;
+    right: 16px;
+  }
+
+  .donation-dialog__method {
+    padding: 24px;
+  }
+
+  .donation-dialog__method-title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .donation-dialog__notice {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .donation-dialog {
+    padding: 12px;
+  }
+
+  .donation-dialog__card {
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+  }
+
+  .donation-dialog__header,
+  .donation-dialog__body {
+    padding: 20px;
+  }
+
+  .donation-dialog__title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .donation-dialog__close {
+    top: 12px;
+    right: 12px;
+  }
+
+  .donation-dialog__method {
+    padding: 20px;
+  }
+
+  .donation-dialog__method-title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .donation-dialog__action {
+    width: 100%;
+  }
+}
