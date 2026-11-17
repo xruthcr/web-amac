@@ -20,12 +20,27 @@ export type Requirement = {
   description: string
 }
 
+export type EditorialCard = {
+  id: string
+  eyebrow: string
+  title: string
+  description?: string
+  linkLabel: string
+  href: string
+  variant: 'light' | 'image'
+  imageAlt?: string
+}
+
 const CONTACT_EMAIL = 'mappygc@hotmail.com'
 
 export const contactEmail = CONTACT_EMAIL
 
 export const donationHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
   'Quiero donar a AMAC',
+)}`
+
+export const paypalRequestHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+  'Solicitar enlace de PayPal',
 )}`
 
 export const volunteerHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
@@ -36,9 +51,19 @@ export const contactHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent
   'Información sobre AMAC',
 )}`
 
+export const newsletterHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+  'Quiero recibir el boletín de AMAC',
+)}`
+
+export const rescueStoriesHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+  'Quiero conocer las historias de rescates de AMAC',
+)}`
+
 export const navLinks: NavLink[] = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Nosotros', href: '#mision' },
+  { label: 'Boletín', href: '#boletin' },
+  { label: 'Historias de rescates', href: '#historias' },
   { label: 'Voluntariado', href: '#voluntariado' },
   { label: 'Contacto', href: '#contacto' },
 ]
@@ -141,13 +166,60 @@ export const adoptionContent = {
   ] satisfies Requirement[],
 }
 
+export const editorialContent = {
+  eyebrow: 'Para conocer y compartir',
+  title: 'Información con propósito',
+  description:
+    'Aprende a prevenir riesgos y conoce las historias que nos recuerdan por qué cada rescate importa.',
+  cards: [
+    {
+      id: 'boletin',
+      eyebrow: 'Boletín AMAC',
+      title: 'Cuidar también es estar informado',
+      description:
+        'Alertas, prevención y bienestar explicados de forma clara para toda la comunidad.',
+      linkLabel: 'Leer el boletín →',
+      href: newsletterHref,
+      variant: 'light',
+    },
+    {
+      id: 'historias',
+      eyebrow: 'Historias de rescates',
+      title: 'Del rescate a una nueva vida',
+      linkLabel: 'Conocer sus historias →',
+      href: rescueStoriesHref,
+      variant: 'image',
+      imageAlt: 'Perro rescatado descansando en un hogar temporal',
+    },
+  ] satisfies EditorialCard[],
+}
+
 export const volunteerContent = {
   eyebrow: 'Voluntariado',
   title: 'Súmate al cambio',
-  description:
-    'Ser voluntario en AMAC es una de las formas más directas de hacer la diferencia. Cada fin de semana, cada paseo, cada abrazo cuenta.',
+  chip: 'Hogares temporales al límite',
+  lead: 'AMAC no cuenta con un refugio físico.',
+  paragraph:
+    'Los animales rescatados son acogidos por personas voluntarias y, actualmente, todos los hogares temporales están ocupados.',
+  secondaryParagraph:
+    'Puedes ayudar con paseos, eventos, difusión o abriendo temporalmente las puertas de tu hogar. Cada forma de voluntariado nos permite seguir rescatando.',
   actionLabel: 'Quiero ser voluntario',
-  imageAlt: 'Voluntarios conviviendo con perros',
+  imageAlt: 'Perro rescatado acompañado en un hogar temporal',
+}
+
+export const donationContent = {
+  eyebrow: 'Donaciones',
+  title: 'Tu ayuda se convierte en cuidado',
+  description:
+    'Cada aportación ayuda a cubrir alimento, consultas, medicamentos, vacunas y esterilizaciones.',
+  methodEyebrow: 'Donar con',
+  methodTitle: 'PayPal',
+  methodDescription:
+    'Solicita nuestro enlace oficial y realiza una aportación única o recurrente de forma segura desde PayPal.',
+  actionLabel: 'Solicitar enlace de PayPal',
+  actionHref: paypalRequestHref,
+  notice:
+    'Por seguridad, verifica que el enlace haya sido compartido por los canales oficiales de AMAC antes de realizar tu aportación.',
 }
 
 export const contactContent = {
